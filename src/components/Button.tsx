@@ -5,6 +5,7 @@ interface ButtonProps {
   onClick?: () => void;
   variant?: 'primary' | 'outline' | 'secondary';
   icon?: React.ReactNode;
+  className?: string; // Adicione esta linha
 }
 
 const Button: React.FC<ButtonProps> = ({ children, onClick, variant = 'primary', icon }) => {

@@ -23,6 +23,20 @@ const RelationshipTimeline = () => {
       description: "Nossa primeira viagem juntos. Dias incríveis à beira-mar!",
       media: { type: "image", url: "/api/placeholder/400/300" },
     },
+    {
+      id: 3,
+      date: "25 de Dezembro, 2023",
+      title: "Natal Juntos",
+      description: "Celebramos o Natal com a família. Momentos inesquecíveis!",
+      media: { type: "image", url: "/api/placeholder/400/300" },
+    },
+    {
+      id: 4,
+      date: "14 de Fevereiro, 2024",
+      title: "Aniversário de Relacionamento",
+      description: "Comemoramos um ano juntos com um jantar romântico.",
+      media: { type: "image", url: "/api/placeholder/400/300" },
+    },
   ]);
 
   const themeClasses = {
@@ -64,29 +78,27 @@ const RelationshipTimeline = () => {
           <Button onClick={handleAddEvent} icon={<Icon name="plus" />}>
             Adicionar Marco
           </Button>
-          <div className="space-x-2">
-            <Button variant="secondary">Exportar PDF</Button>
-            <Button variant="outline">Assinar Plano Premium</Button>
+          <div className="flex space-x-2"> {/* Alterado para flex */}
+            <Button>Exportar PDF</Button>
+            <Button variant="secondary">Assinar Plano Premium</Button>
           </div>
         </div>
 
         <div className="mb-8 animate-fadeInLeft">
-          <label
-            htmlFor="theme"
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
-            Escolha um tema:
-          </label>
-          <select
-            id="theme"
-            value={theme}
-            onChange={(e) => setTheme(e.target.value)}
-            className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm rounded-md transition-colors duration-200"
-          >
-            <option value="default">Padrão</option>
-            <option value="romantic">Romântico</option>
-            <option value="elegant">Elegante</option>
-          </select>
+          <p className="block text-sm font-medium text-gray-700 mb-2">
+            Escolha um tema
+          </p>
+          <div className="flex space-x-4">
+            <Button onClick={() => setTheme("default")} className={theme === "default" ? "bg-blue-500" : ""}>
+              <Icon name="default" /> 
+            </Button>
+            <Button onClick={() => setTheme("romantic")} className={theme === "romantic" ? "bg-blue-500" : ""}>
+              <Icon name="heart" /> 
+            </Button>
+            <Button onClick={() => setTheme("elegant")} className={theme === "elegant" ? "bg-blue-500" : ""}>
+              <Icon name="elegant" /> 
+            </Button>
+          </div>
         </div>
 
         <div className="space-y-8">
